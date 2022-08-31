@@ -1,0 +1,16 @@
+name: CI after each push 
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  cypress-run:
+
+    runs-on: ubundu-latest
+
+    steps:
+    - name: Checkout
+    - uses: actions/checkout@v2.4.2
+    - name: Cypress.io
+    - uses: cypress-io/github-action@v4.2.0
