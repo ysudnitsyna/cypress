@@ -163,8 +163,8 @@
     "yauzl": "^2.10.0"
   },
   "scripts": {
-    "cypress:examples": "cypress open --config-file ./cypress.config.js",
-    "start": "start-test 3000 'cypress open'"
+    "cy:tests": "cypress open",
+    "start": "start-server-and-test 8080 cy:tests"
   },
   "repository": {
     "type": "git",
