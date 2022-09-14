@@ -5,12 +5,12 @@ on: [push]
 jobs:
   cypress-run:
 
-    runs-on: ubundu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2.4.2
-      - name: Cypress run
+      - name: Cypress.io
         uses: cypress-io/github-action@v4.2.0
         with:        
-          start: npm start
+          start: npm run ci
