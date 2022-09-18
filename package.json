@@ -1,7 +1,8 @@
 {
   "devDependencies": {
     "cypress": "^10.7.0",
-    "start-server-and-test": "^1.14.0"
+    "start-server-and-test": "^1.14.0",
+    "http-server": "0.11.1"
   },
   "name": "ysudnitsyna",
   "version": "1.0.0",
@@ -166,15 +167,25 @@
   },
   "scripts": {
     "cy:tests": "cypress open",
-    "start-server": "npm start",
-    "test": "mocha e2e-spec.js",
-    "start": "http-server -c-1 --silent",
-    "ci": "start-server-and-test start-server http://localhost:8080 cy:tests"
+    "start1": "npm start",
+    "test": "mocha e2e-spec.js", 
+    "ci": "start-test 8080 'cy:tests'",
+    "build": "./node_modules/typescript/bin/tsc -p ./js/ && node ./node_modules/browserify/bin/cmd ./js/app.js -o ./js/bundle.js",
+    "start": "node ./serve.js",
+    "cy:open": "cypress open",
+    "cy:report": "node ./cypress/report.js",
+    "cy:run": "cypress run"
+   
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ysudnitsyna/cypress.git"
   },
+  "keywords": [
+    "github-actions",
+    "cypress",
+    "workflows"
+  ],
   "author": "ysudnitsyna",
   "license": "ISC",
   "bugs": {
